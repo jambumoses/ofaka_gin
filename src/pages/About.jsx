@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { constantActions } from "../store/constantSlice";
 import { useDispatch } from "react-redux";
+import SwiperSlider from "../components/SwiperSlider";
 
 export default function About() {
   const dispatch = useDispatch();
   dispatch(constantActions.updateCurrentPage("about"));
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <main>
-      <span class="left-side-banner">
+    <main className="about-section">
+      {/*       <span class="left-side-banner">
         <img
           src={require("../assets/img/no_bg/WEB IMG/uganda-flag-vector-illustration-on-a-white-background-RADDH2 copy.png")}
           alt=""
         />
-      </span>
+      </span> */}
       <section class="about-banner ">
+        {/* scroll images */}
+        {/* <SwiperSlider /> */}
+
         {/* <!-- <img src="./img/no_bg/WEB IMG/about.png" alt=""> --> */}
-        <div class="about-poster">
+
+        {/* working */}
+        {/*         <div class="about-poster">
           <img
             src={require("../assets/img/no_bg/WEB IMG/rum bottle sasmple 02 copy.png")}
             alt=""
@@ -27,9 +39,9 @@ export default function About() {
             src={require("../assets/img/no_bg/WEB IMG/bottle 02.JPG")}
             alt=""
           />
-        </div>
+        </div> */}
       </section>
-      <span class="right-side-banner">
+      <span data-aos="fade-left" class="right-side-banner">
         <img
           src={require("../assets/img/no_bg/WEB IMG/istockphoto-482292024-612x612 copy.png")}
           alt=""
@@ -38,19 +50,19 @@ export default function About() {
 
       <section class="des-1">
         <div>
-          <p>
+          <p data-aos="fade-up">
             To bring value to our stakeholders with our high-quality liquor
             brands and memorable experiences
           </p>
-          <p>
+          <p data-aos="fade-up">
             To be the leading alcohol company that sets high standards for
             responsible business and industry so as;
           </p>
-          <p>
+          <p data-aos="fade-up">
             To emerge as the most celebrated liquor manufacturing, distillation
             and bottling sector company in Uganda as well as the world over.
           </p>
-          <p>
+          <p data-aos="fade-up">
             Customers are at the Centre-front of our core purpose of doing
             business and as such our survival is solely hinged on relations with
             customers. We aspire to treat our stakeholders and customers with
@@ -60,23 +72,27 @@ export default function About() {
         </div>
 
         <ul>
-          <li>To be creative and innovative</li>
-          <li>To deliver excellence</li>
-          <li>To cultivate an entrepreneurial spirit</li>
-          <li>To make possible ways of self-realization for employees</li>
-          <li>
+          <li data-aos="fade-left">To be creative and innovative</li>
+          <li data-aos="fade-left">To deliver excellence</li>
+          <li data-aos="fade-left">To cultivate an entrepreneurial spirit</li>
+          <li data-aos="fade-left">
+            To make possible ways of self-realization for employees
+          </li>
+          <li data-aos="fade-left">
             Maintaining a high standard of professionalism, fairness and total
             customer contentment in all deals
           </li>
-          <li>Delighting our clients through commitment and sincerity</li>
-          <li>
+          <li data-aos="fade-left">
+            Delighting our clients through commitment and sincerity
+          </li>
+          <li data-aos="fade-left">
             Working towards keeping our environment clean and promoting
             responsible imbibe
           </li>
         </ul>
       </section>
 
-      <section class="des-2">
+      <section data-aos="fade-up" class="des-2">
         <small>
           Offaka distillers Ltd was established in 2022 and is fully registered
           and certified by Uganda registration service bureau (URSB) We deal in
@@ -85,22 +101,22 @@ export default function About() {
           bureau of standards (UNBS).
         </small>
 
-        <p>
+        <p data-aos="fade-up">
           We are located in sagazi, Lugazi municipality, Buikwe district with
           our headquarters in sagazi, plot 45, block 159, P. O. Box 34 Lugazi
         </p>
       </section>
 
       <section class="des-3">
-        <h1>our Purpose</h1>
-        <p>
+        <h1 data-aos="fade-up">our Purpose</h1>
+        <p data-aos="fade-up">
           To bring value to our stakeholders with our high-quality liquor brands
           and memorable experiences. To be the leading alcohol company that sets
           high standards for responsible business and the industry.
         </p>
       </section>
 
-      <section class="des-4">
+      <section data-aos="fade-up" class="des-4">
         <small>Offaka Distillers Ltd produces </small>
         <p>
           OFAKA FLAVOURED GIN AND THE COUNSELOR GIN. We offer the best flavoured
@@ -111,7 +127,7 @@ export default function About() {
         </p>
       </section>
 
-      <section class="des-5">
+      <section data-aos="fade-up" class="des-5">
         The Counselor is a premium Gin is inspired from some of the best flavors
         and ingredients from around East Africa. We endeavored to expand the
         flavor profile of our Gin far beyond the realms of traditional
@@ -122,7 +138,7 @@ export default function About() {
         ingredients and combine them to create this gin like no other.
       </section>
 
-      <p class="des-6">
+      <p data-aos="fade-up" class="des-6">
         We inherited the Ugandan tradition of Gin making and improved it to fit
         the world standards. The Counselor is uniquely packaged in ways to bring
         back the old classic and military noble feeling to our customers.
@@ -130,20 +146,20 @@ export default function About() {
 
       <section class="des-7">
         <div>
-          <h1>target</h1>
-          <p>
+          <h1 data-aos="fade-right">target</h1>
+          <p data-aos="fade-up">
             Our target is young professionals between the ages of 25 – 40 who
             are looking to indulge in a high quality, local product.
           </p>
         </div>
-        <section>
+        <section data-aos="fade-up">
           With our innovative product and our targeted marketing approach we
           believe that our products have the potential to quickly became a
           dominate player within the alcoholic beverage market in Uganda.
         </section>
       </section>
 
-      <span class="des-img">
+      <span data-aos="fade-up" class="des-img">
         <img
           src={require("../assets/img/no_bg/WEB IMG/depositphotos_35468603-stock-illustration-dancing-woman-in-ethnic-style copytttt.png")}
           alt=""
