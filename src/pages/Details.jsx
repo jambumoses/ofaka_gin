@@ -1,6 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { constantActions } from "../store/constantSlice";
 
 export default function Details() {
+
+  const dispatch = useDispatch();
+  dispatch(constantActions.updateCurrentPage("details"));
+
   return (
     <main className="details-section">
       <section className="details-image-section">
@@ -160,9 +166,9 @@ export default function Details() {
             </span>
 
             <span className="details-reviews-rates">
-              <i className="fa fa-star" style="color: orange"></i>
-              <i className="fa fa-star" style="color: orange"></i>
-              <i className="fa fa-star" style="color: orange"></i>
+              <i className="fa fa-star" style={{color: "orange"}}></i>
+              <i className="fa fa-star" style={{color: "orange"}}></i>
+              <i className="fa fa-star" style={{color: "orange"}}></i>
               <i className="fa fa-star"></i>
             </span>
             <h3>jambu moses</h3>

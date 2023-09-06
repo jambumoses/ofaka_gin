@@ -1,26 +1,11 @@
 import React from "react";
+import Sponsors from "../components/Sponsors";
 
 export default function Footer() {
   return (
     <footer>
       {/* <!-- supposors --> */}
-      <div className="footer-sponsors-section">
-        <h3>supposors</h3>
-        <div className="footer-sponsors-container">
-          <span>
-            <img src="" alt="" />
-          </span>
-          <span>
-            <img src="" alt="" />
-          </span>
-          <span>
-            <img src="" alt="" />
-          </span>
-          <span>
-            <img src="" alt="" />
-          </span>
-        </div>
-      </div>
+      <Sponsors data={""} />
 
       {/* <!-- 40 % and recycle and bin --> */}
       <div className="footer-percentage-section">
@@ -129,7 +114,7 @@ export default function Footer() {
             src={require("../assets/img/no_bg/unbs-removebg-preview.png")}
             alt=""
           />{" "}
-          UNBS
+          <span>UNBS</span>
         </div>
         <div className="footer-nav-middle">
           <span>

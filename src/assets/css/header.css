@@ -1,62 +1,202 @@
-header{
-    position: relative;
+/* tablet and mobile */
+
+@media (max-width: 1000px) {
+  header {
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
-    height: 100px;
+    height: 50px;
+    width: 100%;
     background-color: black;
     padding: 0px 20px;
-}
+    z-index: 100;
+  }
 
-.header-logo{
+  .header-logo {
     position: absolute;
-    width: 200px;
-    height: 70px;
+    width: 100px;
+    height: 70%;
     background-color: transparent;
-}
+    margin-left: 0px;
+  }
 
-.header-logo img{
+  .header-logo img {
     height: 100%;
     width: 100%;
     object-fit: contain;
-}
+  }
 
-.header-nav{
+  .mobile-menu-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* background-color: rgba(211, 211, 211, 0.178); */
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    right: 10%;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
     display: flex;
     flex-direction: row;
-}
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: fixed;
+    background-color: rgb(15, 15, 15);
+    padding-top: 50px;
+    padding-bottom: 5px;
+    width: 100%;
+    z-index: 90;
+  }
 
-.header-nav span{
+  .mobile-nav a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin: 5px 0px;
+    height: 40px;
+
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    transition: 0.3s linear;
+  }
+
+  .mobile-nav a:hover{
+    color: orange;
+    transition: 0.3s linear;
+  }
+
+  .mobile-nav .active{
+    color: goldenrod;
+  }
+
+  .header-nav {
+    display: none;
+    margin-right: 10%;
+  }
+
+  .header-nav span {
     margin-left: 30px;
     background-color: transparent;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-}
+  }
 
-.header-nav span a{
+  .header-nav span a {
     text-decoration: none;
     text-transform: capitalize;
     font-size: 14px;
-    font-family: poppins,sans-serif;
+    font-family: poppins, sans-serif;
     font-weight: bold;
     color: whitesmoke;
-    transition: .3s linear;
-}
+    transition: 0.3s linear;
+  }
 
-.header-nav span .active{
+  .header-nav span .active {
     color: goldenrod;
-}
+  }
 
-.header-nav span a:hover{
+  .header-nav span a:hover {
     color: orange;
-    transition: .3s linear;
-}
+    transition: 0.3s linear;
+  }
 
-.header-cart-count{
+  .header-cart-count {
     text-decoration: none;
     padding-right: 25px;
     color: whitesmoke;
+  }
+}
+
+/* pc screen */
+
+@media (min-width: 1000px) {
+  header {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    padding: 0px 20px;
+    z-index: 100;
+  }
+
+  .header-logo {
+    position: absolute;
+    width: 200px;
+    height: 70%;
+    background-color: transparent;
+    margin-left: 3%;
+  }
+
+  .header-logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .mobile-menu-bars {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%;
+  }
+
+  .header-nav span {
+    margin-left: 30px;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .header-nav span a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    transition: 0.3s linear;
+  }
+
+  .header-nav span .active {
+    color: goldenrod;
+  }
+
+  .header-nav span a:hover {
+    color: orange;
+    transition: 0.3s linear;
+  }
+
+  .header-cart-count {
+    text-decoration: none;
+    padding-right: 25px;
+    color: whitesmoke;
+  }
 }

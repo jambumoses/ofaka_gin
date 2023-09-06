@@ -1,6 +1,11 @@
 import React from "react";
+import { constantActions } from "../store/constantSlice";
+import { useDispatch } from "react-redux";
 
 export default function About() {
+  const dispatch = useDispatch();
+  dispatch(constantActions.updateCurrentPage("about"));
+
   return (
     <main>
       <span class="left-side-banner">

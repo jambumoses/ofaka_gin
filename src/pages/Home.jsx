@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useDispatch } from "react-redux";
+import { constantActions } from "../store/constantSlice";
 
 export default function Home() {
+
+  const dispatch = useDispatch();
+  dispatch(constantActions.updateCurrentPage("home"));
 
   useEffect(()=>{
     Aos.init({duration: 2000});
@@ -35,15 +40,15 @@ export default function Home() {
       </section>
 
       {/* <!-- samples --> */}
-      <section className="product-samples">
+      <section data-aos="fade-up" className="product-samples">
         <div className="product-sample-item">
-          <span data-aos="fade-right">
+          <span>
             <img
               src={require("../assets/img/no_bg/WEB IMG/rum bottle sasmple 02.JPG")}
               alt=""
             />
           </span>
-          <p data-aos="fade-left">
+          <p >
             <small className="product-sample-item-title">counselor</small>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
             placeat unde labore, eveniet voluptatum perspiciatis, amet, cumque
@@ -85,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* <!-- samples --> */}
-      <section className="product-samples">
+      <section data-aos="fade-up" className="product-samples">
         <div className="product-sample-item product-sample-item-reverse">
           <span>
             <img
@@ -116,19 +121,19 @@ export default function Home() {
 
       {/* <!-- symbols --> */}
       <section className="home-drink-symbols">
-        <span data-aos="fade-right">
+        <span data-aos="fade-up">
           <img
             src={require("../assets/img/no_bg/WEB IMG/images (4) copy.png")}
             alt=""
           />
         </span>
-        <span data-aos="fade-right">
+        <span data-aos="fade-up">
           <img
             src={require("../assets/img/no_bg/WEB IMG/images (3) copy.png")}
             alt=""
           />
         </span>
-        <span data-aos="fade-right">
+        <span data-aos="fade-up">
           <img
             src={require("../assets/img/no_bg/WEB IMG/images (5) copyff.png")}
             alt=""

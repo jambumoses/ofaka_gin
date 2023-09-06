@@ -1,6 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { constantActions } from "../store/constantSlice";
 
 export default function Contact() {
+  const dispatch = useDispatch();
+  dispatch(constantActions.updateCurrentPage("contact"));
+
   return (
     <main className="contact-section">
       <section className="contact-map-section">contact map</section>

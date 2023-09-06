@@ -7,6 +7,7 @@
 @import url("./contact.css");
 @import url("./details.css");
 @import url("./products.css");
+@import url("./sponsors.css");
 
 *{
     font-size: 13px;
@@ -35,3 +36,7 @@ body{
     overflow-x: hidden;
 
 }
+
+/* main{
+    padding-top: 20vh !important;
+} */

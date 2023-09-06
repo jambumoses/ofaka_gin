@@ -3,16 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 const constantSlice = createSlice({
   name: "constant",
   initialState: {
-    companyTitle: "GentlePeople",
-    currentPageTitle: "",
+    companyName: "Ofaka",
+    /*     currentPageTitle: "", */
     currentPage: "",
 
     data: {
-      products: {},
+      products: [{ _id: 1 }, { _id: 1 }, { _id: 1 }],
     },
   },
 
-  reducers: {},
+  reducers: {
+    changeCompanyName(state, actions) {
+      state.companyName = actions.payload;
+    },
+    updateCurrentPage(state, actions) {
+      state.currentPage = actions.payload;
+    },
+  },
 });
 
 export const constantActions = constantSlice.actions;
