@@ -1,0 +1,208 @@
+/* arrow animations */
+
+@keyframes arrow-animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 30px;
+  }
+}
+
+@-o-keyframes arrow-animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 30px;
+  }
+}
+
+@-moz-keyframes arrow-animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 30px;
+  }
+}
+
+@-webkit-keyframes arrow-animation {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 30px;
+  }
+}
+
+.contact-section {
+  position: relative;
+  padding: 0px 10%;
+}
+
+.contact-map-section {
+  background-color: lightgray;
+  height: 60vh;
+}
+
+.arrowing-anime {
+  position: absolute;
+  left: 5%;
+  animation: arrow-animation 1.5s linear infinite;
+}
+
+.contact-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(245, 245, 245, 0.514);
+  padding: 50px 0px;
+}
+
+.contact-social a{
+    text-decoration: none;
+    color: initial;
+}
+
+.contact-sendmail-section {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 13%;
+  margin-top: 150px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 20px 20px;
+  width: 350px;
+}
+
+.contact-sendmail-section h3 {
+  text-transform: capitalize;
+  color: rgb(71, 71, 71);
+  font-size: initial;
+}
+.contact-sendmail-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-sendmail-section form span input {
+  margin: 10px 0px;
+}
+
+.standard-input {
+  width: 100%;
+}
+
+.standard-input input {
+  width: 70%;
+  height: 20px;
+  background-color: white;
+  border: 1px inset silver;
+  border-radius: 4px;
+  outline: none;
+  padding: 1px 10px;
+  color: rgb(71, 71, 71);
+}
+
+.message-input {
+  width: 100%;
+  height: 160px;
+  background-color: transparent;
+}
+
+.message-input textarea {
+  min-width: 90%;
+  min-height: 90%;
+  max-width: 90%;
+  max-height: 90%;
+  outline: none;
+  background-color: white;
+  border: 1px inset silver;
+  color: rgb(71, 71, 71);
+  padding: 10px;
+}
+
+.email-us-btn {
+  padding-top: 10px;
+}
+
+.email-us-btn input {
+  font-size: 13px;
+  font-family: sans-serif;
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.795);
+  color: white;
+  border-radius: 3px;
+  outline: none;
+  text-transform: capitalize;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.email-us-btn input:hover {
+  color: goldenrod;
+  transition: 0.3s linear;
+}
+
+.mails_tel {
+  background-color: transparent;
+}
+
+.mails_tel div {
+  margin: 30px 0px;
+}
+
+.mails_tel div h5 {
+  text-transform: capitalize;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.mails_tel div span {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: rgb(71, 71, 71);
+}
+
+.contact-barcode {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  background-color: transparent;
+  min-height: 200px;
+  margin: 100px 0px;
+  margin-top: 200px;
+}
+
+.contact-barcode span {
+  display: block;
+  text-align: center;
+  padding-top: 30px;
+  height: 180px;
+  width: 300px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.contact-barcode span img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.contact-barcode h3 {
+  font-size: 10vw;
+  font-family: poppins, sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+

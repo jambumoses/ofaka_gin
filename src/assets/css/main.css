@@ -1,0 +1,37 @@
+/* import section */
+@import url("./home.css");
+@import url("./cart.css");
+@import url("./about.css");
+@import url("./header.css");
+@import url("./footer.css");
+@import url("./contact.css");
+@import url("./details.css");
+@import url("./products.css");
+
+*{
+    font-size: 13px;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    display: border-box;
+}
+
+html{
+    font-size: 13px;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    display: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 13px;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    display: border-box;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}

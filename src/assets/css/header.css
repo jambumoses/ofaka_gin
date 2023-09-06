@@ -1,0 +1,62 @@
+header{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    height: 100px;
+    background-color: black;
+    padding: 0px 20px;
+}
+
+.header-logo{
+    position: absolute;
+    width: 200px;
+    height: 70px;
+    background-color: transparent;
+}
+
+.header-logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.header-nav{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-nav span{
+    margin-left: 30px;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header-nav span a{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: poppins,sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    transition: .3s linear;
+}
+
+.header-nav span .active{
+    color: goldenrod;
+}
+
+.header-nav span a:hover{
+    color: orange;
+    transition: .3s linear;
+}
+
+.header-cart-count{
+    text-decoration: none;
+    padding-right: 25px;
+    color: whitesmoke;
+}
