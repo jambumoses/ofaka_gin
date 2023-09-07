@@ -2,6 +2,7 @@
   padding: 5% 3%;
   background-color: goldenrod;
   margin: 0px 0px;
+  padding-top: 130px;
 }
 
 .details-image-section {
@@ -118,7 +119,7 @@
   align-items: center;
   margin-top: 30px;
 }
- .details-image-details-buttons-cart {
+.details-image-details-buttons-cart {
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid goldenrod;
@@ -132,12 +133,12 @@
   transition: 0.3s linear;
   cursor: pointer;
 }
- .details-image-details-buttons-cart:hover {
+.details-image-details-buttons-cart:hover {
   background-color: goldenrod;
   color: white;
   transition: 0.3s linear;
 }
- .details-image-details-buttons-wishlist {
+.details-image-details-buttons-wishlist {
   padding: 5px 10px;
   border: none;
   border: 1px solid goldenrod;
@@ -153,7 +154,7 @@
   transition: 0.3s linear;
   cursor: pointer;
 }
- .details-image-details-buttons-wishlist:hover {
+.details-image-details-buttons-wishlist:hover {
   background-color: goldenrod;
   color: white;
   transition: 0.3s linear;

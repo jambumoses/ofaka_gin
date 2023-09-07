@@ -45,9 +45,17 @@
   }
 
   .contact-map-section {
-    background-color: lightgray;
+    background-color: transparent;
     height: 60vh;
-    margin: 0px 5%;
+    margin: 0px 0%;
+  }
+
+  .contact-map-section iframe {
+    outline: none;
+    border: none;
+    background-color: transparent !important;
+    width: 100%;
+    height: 100%;
   }
 
   .arrowing-anime {
@@ -223,8 +231,16 @@
   }
 
   .contact-map-section {
-    background-color: lightgray;
+    background-color: transparent;
     height: 60vh;
+  }
+
+  .contact-map-section iframe {
+    outline: none;
+    border: none;
+    background-color: transparent !important;
+    width: 100%;
+    height: 100%;
   }
 
   .arrowing-anime {
@@ -396,8 +412,16 @@
   }
 
   .contact-map-section {
-    background-color: lightgray;
+    background-color: transparent;
     height: 60vh;
+  }
+
+  .contact-map-section iframe {
+    outline: none;
+    border: none;
+    background-color: transparent !important;
+    width: 100%;
+    height: 100%;
   }
 
   .arrowing-anime {

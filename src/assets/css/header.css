@@ -44,7 +44,7 @@
   }
 
   .mobile-nav {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;

@@ -2,6 +2,7 @@
     padding: 5% 3%;
     background-color: goldenrod;
     margin: 0px 0px;
+    padding-top: 150px !important;
 }
 
 .products-container{
@@ -82,6 +83,7 @@
 }
 
 .product-item-price-tag{
+    display: none;
     position: absolute;
     background-color: orange;
     color: white;

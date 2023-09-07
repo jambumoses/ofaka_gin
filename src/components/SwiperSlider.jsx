@@ -1,25 +1,22 @@
 import React from "react";
+import {Swiper,SwiperSlide} from 'swiper/react';
 
-import {Swiper,SwiperSilder} from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-import {EffectCoverflow, Pagination, Navigation} from 'swiper';
-
-
+import { EffectCoverflow, Navigation, Pagination } from "swiper";
 
 export default function SwiperSlider() {
   return (
     <>
       <Swiper 
-        effect={'coverflow'}
+        effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        slidesPreView={'auto'}
+        slidesPreView={"auto"}
         coverflowEffect={
             {
                 rotate:0,
@@ -37,13 +34,12 @@ export default function SwiperSlider() {
         modules={[EffectCoverflow,Pagination,Navigation]}
         className='swiper_container'
       >
-        <SwiperSilder><img src={require("img1")} alt="" /></SwiperSilder>
-        <SwiperSilder><img src={require("img2")} alt="" /></SwiperSilder>
-        <SwiperSilder><img src={require("img3")} alt="" /></SwiperSilder>
-        <SwiperSilder><img src={require("img4")} alt="" /></SwiperSilder>
-        <SwiperSilder><img src={require("img5")} alt="" /></SwiperSilder>
-        <SwiperSilder><img src={require("img6")} alt="" /></SwiperSilder>
-      
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/j-mckinney-zIo9Fbh8qJc-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/j-mckinney-zIo9Fbh8qJc-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiper-slide"><img src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")} alt="" /></SwiperSlide>
       
       <div className="slider-controller">
         <div className="swiper-button-prev slider-arrow">

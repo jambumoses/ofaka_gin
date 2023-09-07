@@ -8,7 +8,12 @@ export default function Contact() {
 
   return (
     <main className="contact-section">
-      <section className="contact-map-section">contact map</section>
+      <section className="contact-map-section">
+        
+        <iframe id="gmap_canvas" src="" ></iframe>
+      </section>
+
+      
       <span className="arrowing-anime">
         <i
           style={{ fontSize: "20px", color: "rgb(71, 71, 50)" }}

@@ -17,13 +17,13 @@ export default function About() {
     <main className="about-section">
       {/*       <span class="left-side-banner">
         <img
-          src={require("../assets/img/no_bg/WEB IMG/uganda-flag-vector-illustration-on-a-white-background-RADDH2 copy.png")}
-          alt=""
+        src={require("../assets/img/no_bg/WEB IMG/uganda-flag-vector-illustration-on-a-white-background-RADDH2 copy.png")}
+        alt=""
         />
       </span> */}
       <section class="about-banner ">
-        {/* scroll images */}
         {/* <SwiperSlider /> */}
+        {/* scroll images */}
 
         {/* <!-- <img src="./img/no_bg/WEB IMG/about.png" alt=""> --> */}
 
@@ -72,20 +72,20 @@ export default function About() {
         </div>
 
         <ul>
-          <li data-aos="fade-left">To be creative and innovative</li>
-          <li data-aos="fade-left">To deliver excellence</li>
-          <li data-aos="fade-left">To cultivate an entrepreneurial spirit</li>
-          <li data-aos="fade-left">
+          <li data-aos="fade-up">To be creative and innovative</li>
+          <li data-aos="fade-up">To deliver excellence</li>
+          <li data-aos="fade-up">To cultivate an entrepreneurial spirit</li>
+          <li data-aos="fade-up">
             To make possible ways of self-realization for employees
           </li>
-          <li data-aos="fade-left">
+          <li data-aos="fade-up">
             Maintaining a high standard of professionalism, fairness and total
             customer contentment in all deals
           </li>
-          <li data-aos="fade-left">
+          <li data-aos="fade-up">
             Delighting our clients through commitment and sincerity
           </li>
-          <li data-aos="fade-left">
+          <li data-aos="fade-up">
             Working towards keeping our environment clean and promoting
             responsible imbibe
           </li>
