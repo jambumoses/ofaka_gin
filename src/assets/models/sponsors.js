@@ -3,44 +3,44 @@ const sponsors = [
     {
       _id: "1",
       title: "",
-      img: "",
+      img: "unbs2-removebg-preview.png",
     },
     {
       _id: "2",
       title: "",
-      img: "",
+      img: "download-removebg-preview.png",
     },
     {
       _id: "3",
       title: "",
-      img: "",
+      img: "logo2.png",
     },
     {
       _id: "4",
       title: "",
-      img: "",
+      img: "recycle-removebg-preview.png",
     },
   ],
   [
     {
       _id: "1",
       title: "",
-      img: "",
+      img: "s-l500 copy.png",
     },
     {
       _id: "2",
       title: "",
-      img: "",
+      img: "download-removebg-preview.png",
     },
     {
       _id: "3",
       title: "",
-      img: "",
+      img: "recycle-removebg-preview.png",
     },
     {
       _id: "4",
       title: "",
-      img: "",
+      img: "logo2.png",
     },
   ],
 ];

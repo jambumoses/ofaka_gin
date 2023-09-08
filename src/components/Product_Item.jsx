@@ -13,25 +13,24 @@ export default function Product_Item({ data }) {
           }}
         ></i>
       </span>
-      <span className="product-item-price-tag">shs.15,000</span>
+      <span className="product-item-price-tag">
+        {data.currency}.{data.price}
+      </span>
 
-      <a className="product-item-get" href="/details">
+      <a className="product-item-get" href={"/details?product=" + data._id}>
         {" "}
         get{" "}
       </a>
       <span className="product-item-thumbnail">
-        <img
-          src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")}
-          alt=""
-        />
+        <img src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")} alt="" />
       </span>
       <p className="product-item-description">
-        <span style={{ paddingRight: "3px" }}>red wine</span>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, neque
-        natus! Eum corrupti praesentium iste neque non minus, inventore
-        voluptates
+        <span style={{ paddingRight: "3px" }}>{data.name}</span>
+        {data.short_description}
         <br />
-        <span>shs.15,00</span>
+        <span>
+          {data.currency}.{data.price}
+        </span>
       </p>
     </div>
   );

@@ -1,4 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+/* models */
+import productsModel from "../assets/models/products";
+import merchantModel from "../assets/models/merchant";
+import bannersModel from "../assets/models/banners";
+import sponsorsModel from "../assets/models/sponsors";
 
 const constantSlice = createSlice({
   name: "constant",
@@ -8,7 +13,12 @@ const constantSlice = createSlice({
     currentPage: "",
 
     data: {
-      products: [{ _id: 1 }, { _id: 1 }, { _id: 1 }],
+      cart: {},
+      details: {},
+      merchantInfo: merchantModel,
+      banners: bannersModel,
+      sponsors: sponsorsModel,
+      products: productsModel,
     },
   },
 

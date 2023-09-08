@@ -1,291 +1,303 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { constantActions } from "../store/constantSlice";
+import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 export default function Details() {
+  const allData = useSelector((state) => state.constant.data.products);
+  const data = useSelector((state) => state.constant.data.products)[0];
 
   const dispatch = useDispatch();
   dispatch(constantActions.updateCurrentPage("details"));
 
+  const [mainImage, setMainImage] = useState(data.images[0].src);
+
+  const [params] = useSearchParams();
+
+  allData.forEach((item) => {
+    if (params.get("product") === item._id) {
+      params.set('product',item._id)
+    }
+  });
+
+  /* 
+  const [verifyID, setVerifyID] = useState(true);
+
+  useEffect(() => {
+    allData.forEach((item) => {
+      if (params.get("product") === item._id) {
+        setVerifyID(true);
+      }
+
+      if (params.get("product") !== item._id) {
+        setVerifyID(false);
+      }
+    });
+  }, []); */
+
+  //setVerifyID(VerifyProduct());
+
   return (
-    <main className="details-section">
-      <section className="details-image-section">
-        {/* <!-- image list --> */}
-        <div className="details-images">
-          <div className="details-imagelist-section">
-            <span>
-              <img
-                src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-            <span>
-              <img
-                src={require("../assets/img/j-mckinney-zIo9Fbh8qJc-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-            <span>
-              <img
-                src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-          </div>
-          {/* <!-- main image --> */}
-          <div className="details-main-image-section">
-            <img
-              src={require("../assets/img/gabriele-garanzelli-yqAk8NyqN3Y-unsplash-removebg-preview.png")}
-              alt=""
-            />
-          </div>
-        </div>
-        {/* <!-- details --> */}
-        <div className="details-image-details-section">
-          <small className="details-image-details-top-rated">
-            <i
-              className="fa fa-star"
-              style={{
-                fontSize: "30px",
-                color: "gold",
-                transform: "rotateZ(30deg)",
-              }}
-            ></i>
-          </small>
-          <span>
-            name: <small>Royal Gin</small>
-          </span>
-          <span>
-            color: <small>colourless</small>
-          </span>
-          <span>
-            price: <small>shs.15,000</small>
-          </span>
-          <span>
-            company: <small>Ofaka Flavoured Gin</small>
-          </span>
-          <span>
-            percentage: <small>40 %</small>
-          </span>
-          <span>
-            rating:
-            <small>
-              <i className="fa fa-star" style={{ color: "orange" }}></i>
-              <i className="fa fa-star" style={{ color: "orange" }}></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-            </small>
-          </span>
-          <div className="details-image-details-short-description">
-            <h3>short description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              at maiores magnam repudiandae aliquam nesciunt iure dicta quas
-              sed, eos amet tempore necessitatibus. Quasi cupiditate id dolorem
-              quidem, eveniet ad.
-            </p>
-          </div>
+    <>
+      {params.get("product") === "" && (
+        <Navigate to="/products" replace={false} />
+      )}
 
-          <div className="details-image-details-buttons">
-            <button
-              className="details-image-details-buttons-cart"
-              type="button"
-            >
-              <i
-                className="fa fa-shopping-bag"
-                style={{ marginRight: "5px" }}
-              ></i>{" "}
-              add to cart
-            </button>
-            <button
-              className="details-image-details-buttons-wishlist"
-              type="button"
-            >
-              <i className="fa fa-heart" style={{ marginRight: "5px" }}></i>{" "}
-              wishlist
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* verifyID && */ allData.includes(data) && params.get("product") !== "" ? (
+        <main className="details-section">
+          <section className="details-image-section">
+            {/* <!-- image list --> */}
+            <div className="details-images">
+              <div className="details-imagelist-section">
+                {data.images.map(function (img) {
+                  return (
+                    <span key={img._id} onClick={() => setMainImage(img.src)}>
+                      <img
+                        src={require("../assets/img/" + img.src)}
+                        alt={img.alt}
+                      />
+                    </span>
+                  );
+                })}
+              </div>
+              {/* <!-- main image --> */}
+              <div className="details-main-image-section">
+                <img
+                  src={require("../assets/img/" + mainImage)} // main image
+                  alt=""
+                />
+              </div>
+            </div>
+            {/* <!-- details --> */}
+            <div className="details-image-details-section">
+              <small className="details-image-details-top-rated">
+                <i
+                  className="fa fa-star"
+                  style={{
+                    fontSize: "30px",
+                    color: "gold",
+                    transform: "rotateZ(30deg)",
+                  }}
+                ></i>
+              </small>
+              <span>
+                name: <small>{data.name}</small>
+              </span>
+              <span>
+                color: <small>{data.color}</small>
+              </span>
+              <span>
+                price:{" "}
+                <small>
+                  {data.currency}.{data.price}
+                </small>
+              </span>
+              <span>
+                company: <small>{data.company}</small>
+              </span>
+              <span>
+                percentage: <small>{data.percentage} %</small>
+              </span>
+              <span>
+                rating:
+                <small>
+                  <i
+                    className="fa fa-star"
+                    style={{ color: data.rating >= 1 ? "orange" : null }}
+                  ></i>
+                  <i
+                    className="fa fa-star"
+                    style={{ color: data.rating >= 2 ? "orange" : null }}
+                  ></i>
+                  <i
+                    className="fa fa-star"
+                    style={{ color: data.rating >= 3 ? "orange" : null }}
+                  ></i>
+                  <i
+                    className="fa fa-star"
+                    style={{ color: data.rating >= 4 ? "orange" : null }}
+                  ></i>
+                </small>
+              </span>
+              <div className="details-image-details-short-description">
+                <h3>short description</h3>
+                <p>{data.short_description}</p>
+              </div>
 
-      {/* <!-- description --> */}
-      <p className="details-description">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia
-        similique, architecto veritatis ullam iusto voluptas hic possimus fugiat
-        accusamus molestiae cupiditate consequuntur aut nesciunt quasi atque
-        neque quae? Exercitationem, iusto.
-      </p>
+              <div className="details-image-details-buttons">
+                <button
+                  className="details-image-details-buttons-cart"
+                  type="button"
+                >
+                  <i
+                    className="fa fa-shopping-bag"
+                    style={{ marginRight: "5px" }}
+                  ></i>{" "}
+                  add to cart
+                </button>
+                <button
+                  className="details-image-details-buttons-wishlist"
+                  type="button"
+                >
+                  <i className="fa fa-heart" style={{ marginRight: "5px" }}></i>{" "}
+                  wishlist
+                </button>
+              </div>
+            </div>
+          </section>
 
-      {/* <!-- reviews --> */}
-      <section className="details-reviews-section">
-        <h3>reviews</h3>
+          {/* <!-- description --> */}
+          <p className="details-description">{data.description}</p>
 
-        <div className="details-reviews-sect">
-          <div className="details-reviews-container">
-            <span className="details-reviews-thumbnail">
-              <img src="" alt="" />
-            </span>
-            <span className="details-reviews-rates">
-              <i className="fa fa-star" style={{ color: "orange" }}></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-            </span>
-            <h3>jambu moses</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
-              consectetur adipisci, recusandae eveniet similique dolores sunt et
-              saepe, vel non veniam sequi natus tempora asperiores officia
-              magnam reprehenderit harum voluptate!
-            </p>
-          </div>
+          {/* <!-- reviews --> */}
+          <section className="details-reviews-section">
+            <h3>reviews</h3>
 
-          <div className="details-reviews-container">
-            <span className="details-reviews-thumbnail">
-              <img src="" alt="" />
-            </span>
+            <div className="details-reviews-sect">
+              {data.reviews.map(function (review) {
+                return (
+                  <div key={review._id} className="details-reviews-container">
+                    <span className="details-reviews-thumbnail">
+                      <img
+                        src={require("../assets/img/no_bg/" +
+                          review.profile_image)}
+                        alt=""
+                      />
+                    </span>
+                    <span className="details-reviews-rates">
+                      <i
+                        className="fa fa-star"
+                        style={{ color: data.rating >= 1 ? "orange" : null }}
+                      ></i>
+                      <i
+                        className="fa fa-star"
+                        style={{ color: data.rating >= 2 ? "orange" : null }}
+                      ></i>
+                      <i
+                        className="fa fa-star"
+                        style={{ color: data.rating >= 3 ? "orange" : null }}
+                      ></i>
+                      <i
+                        className="fa fa-star"
+                        style={{ color: data.rating >= 4 ? "orange" : null }}
+                      ></i>
+                    </span>
+                    <h3>{review.name}</h3>
+                    <p>{review.comment}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
 
-            <span className="details-reviews-rates">
-              <i className="fa fa-star" style={{ color: "orange" }}></i>
-              <i className="fa fa-star" style={{ color: "orange" }}></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-            </span>
-            <h3>jambu moses</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
-              consectetur adipisci, recusandae eveniet similique dolores sunt et
-              saepe, vel non veniam sequi natus tempora asperiores officia
-              magnam reprehenderit harum voluptate!
-            </p>
-          </div>
+          <section className="details-related-section">
+            <h3>related products</h3>
 
-          <div className="details-reviews-container">
-            <span className="details-reviews-thumbnail">
-              <img src="" alt="" />
-            </span>
+            <div className="details-related-container">
+              {/* <!-- start --> */}
 
-            <span className="details-reviews-rates">
-              <i className="fa fa-star" style={{color: "orange"}}></i>
-              <i className="fa fa-star" style={{color: "orange"}}></i>
-              <i className="fa fa-star" style={{color: "orange"}}></i>
-              <i className="fa fa-star"></i>
-            </span>
-            <h3>jambu moses</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
-              consectetur adipisci, recusandae eveniet similique dolores sunt et
-              saepe, vel non veniam sequi natus tempora asperiores officia
-              magnam reprehenderit harum voluptate!
-            </p>
-          </div>
-        </div>
-      </section>
+              <div className="product-item">
+                <span className="product-item-price-tag-star">
+                  <i
+                    className="fa fa-star"
+                    style={{
+                      fontSize: "20px",
+                      color: "gold",
+                      transform: "rotateZ(30deg)",
+                    }}
+                  ></i>
+                </span>
+                <span className="product-item-price-tag">shs.15,000</span>
+                <a className="product-item-get" href="">
+                  {" "}
+                  get{" "}
+                </a>
+                <span className="product-item-thumbnail">
+                  <img
+                    src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
+                    alt=""
+                  />
+                </span>
+                <p className="product-item-description">
+                  <span style={{ paddingRight: "3px" }}>red wine</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quod, neque natus! Eum corrupti praesentium iste neque non
+                  minus, inventore voluptates
+                  <br />
+                  <span>shs.15,00</span>
+                </p>
+              </div>
 
-      <section className="details-related-section">
-        <h3>related products</h3>
+              <div className="product-item">
+                <span className="product-item-price-tag-star">
+                  <i
+                    className="fa fa-star"
+                    style={{
+                      fontSize: "20px",
+                      color: "gold",
+                      transform: "rotateZ(30deg)",
+                    }}
+                  ></i>
+                </span>
+                <span className="product-item-price-tag">shs.15,000</span>
+                <a className="product-item-get" href="">
+                  {" "}
+                  get{" "}
+                </a>
+                <span className="product-item-thumbnail">
+                  <img
+                    src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
+                    alt=""
+                  />
+                </span>
+                <p className="product-item-description">
+                  <span style={{ paddingRight: "3px" }}>red wine</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quod, neque natus! Eum corrupti praesentium iste neque non
+                  minus, inventore voluptates
+                  <br />
+                  <span>shs.15,00</span>
+                </p>
+              </div>
 
-        <div className="details-related-container">
-          {/* <!-- start --> */}
-
-          <div className="product-item">
-            <span className="product-item-price-tag-star">
-              <i
-                className="fa fa-star"
-                style={{
-                  fontSize: "20px",
-                  color: "gold",
-                  transform: "rotateZ(30deg)",
-                }}
-              ></i>
-            </span>
-            <span className="product-item-price-tag">shs.15,000</span>
-            <a className="product-item-get" href="">
-              {" "}
-              get{" "}
-            </a>
-            <span className="product-item-thumbnail">
-              <img
-                src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-            <p className="product-item-description">
-              <span style={{ paddingRight: "3px" }}>red wine</span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod,
-              neque natus! Eum corrupti praesentium iste neque non minus,
-              inventore voluptates
-              <br />
-              <span>shs.15,00</span>
-            </p>
-          </div>
-
-          <div className="product-item">
-            <span className="product-item-price-tag-star">
-              <i
-                className="fa fa-star"
-                style={{
-                  fontSize: "20px",
-                  color: "gold",
-                  transform: "rotateZ(30deg)",
-                }}
-              ></i>
-            </span>
-            <span className="product-item-price-tag">shs.15,000</span>
-            <a className="product-item-get" href="">
-              {" "}
-              get{" "}
-            </a>
-            <span className="product-item-thumbnail">
-              <img
-                src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-            <p className="product-item-description">
-              <span style={{ paddingRight: "3px" }}>red wine</span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod,
-              neque natus! Eum corrupti praesentium iste neque non minus,
-              inventore voluptates
-              <br />
-              <span>shs.15,00</span>
-            </p>
-          </div>
-
-          <div className="product-item">
-            <span className="product-item-price-tag-star">
-              <i
-                className="fa fa-star"
-                style={{
-                  fontSize: "20px",
-                  color: "gold",
-                  transform: "rotateZ(30deg)",
-                }}
-              ></i>
-            </span>
-            <span className="product-item-price-tag">shs.15,000</span>
-            <a className="product-item-get" href="">
-              {" "}
-              get{" "}
-            </a>
-            <span className="product-item-thumbnail">
-              <img
-                src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
-                alt=""
-              />
-            </span>
-            <p className="product-item-description">
-              <span style={{ paddingRight: "3px" }}>red wine</span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod,
-              neque natus! Eum corrupti praesentium iste neque non minus,
-              inventore voluptates
-              <br />
-              <span>shs.15,00</span>
-            </p>
-          </div>
-          {/* <!-- end --> */}
-        </div>
-      </section>
-    </main>
+              <div className="product-item">
+                <span className="product-item-price-tag-star">
+                  <i
+                    className="fa fa-star"
+                    style={{
+                      fontSize: "20px",
+                      color: "gold",
+                      transform: "rotateZ(30deg)",
+                    }}
+                  ></i>
+                </span>
+                <span className="product-item-price-tag">shs.15,000</span>
+                <a className="product-item-get" href="">
+                  {" "}
+                  get{" "}
+                </a>
+                <span className="product-item-thumbnail">
+                  <img
+                    src={require("../assets/img/jocelyn-morales-pXyNqLpNqAU-unsplash-removebg-preview.png")}
+                    alt=""
+                  />
+                </span>
+                <p className="product-item-description">
+                  <span style={{ paddingRight: "3px" }}>red wine</span>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quod, neque natus! Eum corrupti praesentium iste neque non
+                  minus, inventore voluptates
+                  <br />
+                  <span>shs.15,00</span>
+                </p>
+              </div>
+              {/* <!-- end --> */}
+            </div>
+          </section>
+        </main>
+      ) : (
+        <Navigate to="/products" replace={false} />
+      )}
+    </>
   );
 }
